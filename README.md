@@ -21,4 +21,4 @@ This image shows what the show page would look like once you click on your art w
 <br>
 
 # ERD
-![wireframe](./images/ERD.png)
+![erd](./images/erdiagram.jpeg)
