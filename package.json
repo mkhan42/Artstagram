@@ -1,0 +1,21 @@
+{
+  "name": "artstagram",
+  "version": "1.0.0",
+  "description": "SEI 5/9 Project 2: Artstagram </br> The idea of this project is to create a platform for artists to upload and promote their work within the art community.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mkhan42/Artstagram.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mkhan42/Artstagram/issues"
+  },
+  "homepage": "https://github.com/mkhan42/Artstagram#readme"
+}
