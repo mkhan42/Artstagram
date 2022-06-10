@@ -17,3 +17,8 @@ This image shows what the index page would look like and then what the user page
 
 ![wireframe](./images/wireframe3.jpeg)
 This image shows what the show page would look like once you click on your art work.
+
+<br>
+
+# ERD
+![wireframe](./images/ERD.png)
