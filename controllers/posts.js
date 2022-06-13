@@ -1,5 +1,5 @@
 const express = require('express')
-const Art = require("../models/arts")
+const Post = require("../models/posts")
 
 const router = express.Router()
 
@@ -22,10 +22,10 @@ const router = express.Router()
 
 
 router.get('/', (req, res) => {
-    Art.find({})
+    Post.find({})
     
-    .then((arts) => {
-        res.render('arts/index.liquid', { arts })
+    .then((posts) => {
+        res.render('posts/index.liquid', { posts })
     })
 
     .catch((error) => {
@@ -34,7 +34,7 @@ router.get('/', (req, res) => {
 })
 
 router.get('/new', (req, res) => {
-    res.render('arts/new.liquid')
+    res.render('posts/new.liquid')
 })
 
 router.post('/', (req, res) => {
@@ -42,23 +42,23 @@ router.post('/', (req, res) => {
     //const image = {};
     //image_url = req.file.url;
     //image_id = req.file.public_id;
-    Art.create(req.body)
+    Post.create(req.body)
       //.then(newImage => res.json(newImage))
-      .then((arts) => {
-          res.redirect('/arts')
+      .then((posts) => {
+          res.redirect('/posts')
       })
       .catch((error) => {
-        console.log(error);
-        res.json({ error });
+        console.log(error)
+        res.json({ error })
       })
-  });
+  })
 
 router.get('/:id/edit', (req, res) => {
     const id = req.params.id
 
-    Art.findById(id)
-    .then((art) => {
-        res.render('arts/edit.liquid', { art })
+    Post.findById(id)
+    .then((post) => {
+        res.render('posts/edit.liquid', { post })
     })
 
     .catch((error) => {
@@ -67,11 +67,23 @@ router.get('/:id/edit', (req, res) => {
     })
 })
 
+router.put('/:id', (req, res) => {
+    const id = req.params.id
+    Post.findByIdAndUpdate(id, req.body, { new: true })
+    .then((art) => {
+        res.redirect('/posts')
+    })
+    .catch((error) => {
+        console.log(error)
+        res.json( { error } )
+    })
+})
+
 router.delete('/:id', (req, res) => {
     const id = req.params.id
-    Art.findByIdAndRemove(id)
-    .then((art) => {
-        res.redirect('/arts')
+    Post.findByIdAndRemove(id)
+    .then((post) => {
+        res.redirect('/posts')
     })
     .catch((error) => {
         console.log(error)
@@ -81,9 +93,9 @@ router.delete('/:id', (req, res) => {
 
 router.get('/:id', (req, res) => {
     const id = req.params.id
-    Art.findById(id)
-    .then((art) => {
-        res.render('arts/show.liquid', { art })
+    Post.findById(id)
+    .then((post) => {
+        res.render('posts/show.liquid', { post })
     })
     .catch((error) => {
         console.log(error)
@@ -91,4 +103,4 @@ router.get('/:id', (req, res) => {
     })
 })
 
-module.exports = router;
+module.exports = router

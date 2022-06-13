@@ -3,8 +3,8 @@ const express = require("express")
 const morgan = require("morgan")
 const methodOverride = require("method-override")
 const path = require("path")
-const Art = require("./models/arts")
-const ArtRouter = require('./controllers/arts')
+const Post = require("./models/posts")
+const PostRouter = require('./controllers/posts')
 
 
 const app = require("liquid-express-views")(express(), {
@@ -21,7 +21,7 @@ app.use(
 
 app.use(express.static("public"))
 
-app.use('/arts', ArtRouter)
+app.use('/posts', PostRouter)
 
 app.get("/", (req, res) => {
     res.send("your server is running... better catch it.")

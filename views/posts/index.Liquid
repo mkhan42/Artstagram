@@ -1,0 +1,16 @@
+{% layout "layout.liquid" %} {% block content %}
+<a href="/posts/new"><button>Add Artwork</button></a>
+{% for post in posts %}
+<article>
+    <div class="item-div">
+      <h3>
+        {{ post.name }}
+      </h3>
+    <a href="/posts/{{ post._id }}">
+      <img src="{{ post.image_url }}.png" width='200px'/>
+    </a>
+    <form action="/posts/{{ post._id }}?_method=DELETE" method="POST">
+      <input type="submit" value="Delete" />
+    </form>
+</article>
+{% endfor %} {% endblock %}

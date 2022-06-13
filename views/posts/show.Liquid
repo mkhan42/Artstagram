@@ -1,0 +1,17 @@
+{% layout "layout.liquid" %} {% block content %}
+<div>
+    <article>
+      <h2>
+        {{ post.name }}
+      </h2>
+      <br />
+      <img src="{{ post.image_url }}.png" width='200px' /> <br />
+        {{ post.title }} <br />
+      <a href="/posts/{{ post._id }}/edit"><button>Edit</button></a>
+      <form action="/posts/{{ post._id }}?_method=DELETE" method="POST">
+        <input type="submit" value="Delete" />
+      </form>
+      <a href="/posts/"><button>Back to Main</button></a>
+    </article>
+  </div>
+ {% endblock %}

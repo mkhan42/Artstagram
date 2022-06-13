@@ -7,7 +7,13 @@ const { Schema, model } = mongoose
 //     id: String,
 // })
 
-const artsSchema = new Schema ({
+const commentsSchema = new Schema ({
+    content: String
+}, {
+    timestamps: true
+})
+
+const postsSchema = new Schema ({
     name: {
         type: String,
         required: true
@@ -16,13 +22,19 @@ const artsSchema = new Schema ({
     //image_id: String,
     title: {
         type: String,
-        default: 'Untitled'
+        default: 'Untitled',
+        required: true
     },
     description: String,
-    tools_used: [String]
+    tools_used: [String],
+    comments: [commentsSchema]
+}, {
+    timestamps: true
+}
+
     //userId
-})
+)
 
-const Art = model('Art', artsSchema)
+const Post = model('Post', postsSchema)
 
-module.exports = Art
+module.exports = Post
