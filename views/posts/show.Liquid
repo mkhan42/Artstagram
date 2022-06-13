@@ -18,7 +18,7 @@
       </form>
       <br>
       {% for comment in post.comments %}
-      {{ comment.content }} <br>
+      {{ comment.content }} <a href="/posts/{{ post._id }}/{{ comment._id }}/comments/edit"><button>Edit</button> </a> <br>
       {% endfor %}
       <a href="/posts/"><button>Back to Main</button></a>
     </article>
