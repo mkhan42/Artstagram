@@ -15,3 +15,5 @@ mongoose.connection
   .on("error", (error) => console.log(error))
 
   module.exports = mongoose
+
+  //import from

@@ -1,5 +1,6 @@
 const express = require('express')
 const Post = require("../models/posts")
+const Comment = require('../models/comments')
 
 const router = express.Router()
 
@@ -53,6 +54,19 @@ router.post('/', (req, res) => {
       })
   })
 
+  router.post('/:id/comments', (req, res) => {
+
+    Post.findById((req.params.id), (error, post) => {
+        post.comments.push(req.body)
+
+        post.save(error => {
+            res.redirect(`/posts/${post._id}`)
+        })
+    })
+  })
+
+
+
 router.get('/:id/edit', (req, res) => {
     const id = req.params.id
 
@@ -70,7 +84,7 @@ router.get('/:id/edit', (req, res) => {
 router.put('/:id', (req, res) => {
     const id = req.params.id
     Post.findByIdAndUpdate(id, req.body, { new: true })
-    .then((art) => {
+    .then((post) => {
         res.redirect('/posts')
     })
     .catch((error) => {

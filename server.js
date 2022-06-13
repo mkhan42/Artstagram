@@ -5,6 +5,7 @@ const methodOverride = require("method-override")
 const path = require("path")
 const Post = require("./models/posts")
 const PostRouter = require('./controllers/posts')
+// const CommentsRouter = require('./controllers/comments')
 
 
 const app = require("liquid-express-views")(express(), {
@@ -22,6 +23,7 @@ app.use(
 app.use(express.static("public"))
 
 app.use('/posts', PostRouter)
+//app.use('/', CommentsRouter)
 
 app.get("/", (req, res) => {
     res.send("your server is running... better catch it.")

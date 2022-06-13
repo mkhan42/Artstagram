@@ -11,6 +11,15 @@
       <form action="/posts/{{ post._id }}?_method=DELETE" method="POST">
         <input type="submit" value="Delete" />
       </form>
+      <form action="/posts/{{ post._id }}/comments?_method=POST" method="POST">
+        <label>Comment:</label>
+        <textarea name="content"></textarea>
+        <input type="submit" value="Add Comment">
+      </form>
+      <br>
+      {% for comment in post.comments %}
+      {{ comment.content }} <br>
+      {% endfor %}
       <a href="/posts/"><button>Back to Main</button></a>
     </article>
   </div>
