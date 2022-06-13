@@ -3,22 +3,22 @@ const Art = require("../models/arts")
 
 const router = express.Router()
 
-const multer = require("multer")
-const cloudinary = require("cloudinary")
-const { CloudinaryStorage } = require("multer-storage-cloudinary")
+// const multer = require("multer")
+// const cloudinary = require("cloudinary")
+// const { CloudinaryStorage } = require("multer-storage-cloudinary")
 
-cloudinary.config({
-    cloud_name: process.env.CLOUD_NAME,
-    api_key: process.env.API_KEY,
-    api_secret: process.env.API_SECRET
-    })
-    const storage = new CloudinaryStorage({
-    cloudinary: cloudinary,
-    folder: "demo",
-    allowedFormats: ["jpg", "png"],
-    transformation: [{ width: 500, height: 500, crop: "limit" }]
-    })
-    const parser = multer({ storage: storage })
+// cloudinary.config({
+//     cloud_name: process.env.CLOUD_NAME,
+//     api_key: process.env.API_KEY,
+//     api_secret: process.env.API_SECRET
+//     })
+//     const storage = new CloudinaryStorage({
+//     cloudinary: cloudinary,
+//     folder: "demo",
+//     allowedFormats: ["jpg", "png"],
+//     transformation: [{ width: 500, height: 500, crop: "limit" }]
+//     })
+//     const parser = multer({ storage: storage })
 
 
 router.get('/', (req, res) => {
@@ -34,25 +34,16 @@ router.get('/', (req, res) => {
 })
 
 router.get('/new', (req, res) => {
-    Art.create(req.body)
-    
-    .then((arts) => {
-        res.redirect('/arts')
-    })
-
-    .catch((error) => {
-        console.log(error)
-        res.json( {error} )
-    })
+    res.render('arts/new.liquid')
 })
 
-router.post('/', parser.single('image'), (req, res) => {
-    console.log(req.file)
-    const image = {};
-    image.url = req.file.url;
-    image.id = req.file.public_id;
-    Art.create(req.body, image)
-      .then(newImage => res.json(newImage))
+router.post('/', (req, res) => {
+    //console.log(req.file)
+    //const image = {};
+    //image_url = req.file.url;
+    //image_id = req.file.public_id;
+    Art.create(req.body)
+      //.then(newImage => res.json(newImage))
       .then((arts) => {
           res.redirect('/arts')
       })

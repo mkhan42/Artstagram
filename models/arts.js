@@ -8,12 +8,12 @@ const { Schema, model } = mongoose
 // })
 
 const artsSchema = new Schema ({
-    artistName: {
+    name: {
         type: String,
-        //required: true
+        required: true
     },
-    image: String,
-    image_id: String,
+    image_url: String,
+    //image_id: String,
     title: {
         type: String,
         default: 'Untitled'

@@ -1,7 +1,33 @@
 {% layout "layout.liquid" %} {% block content %}
-<form action='/arts' method="post" enctype="multipart/form-data">
-    <input type='file' name='image' />
-    <!-- <input type='text' name='artistName' /> -->
-</form>
+<h1>New Post</h1>
+<form action="/arts" method="post">
+    <fieldset>
+      <legend>Add</legend>
+      <label>
+        ARTIST NAME:<input type="text" name="name" placeholder="name" />
+      </label>
+      <label> 
+          IMG URL:<input type="text" name="image_url" placeholder="img url"/> 
+        </label>
+        <label> 
+            TITLE:<input type="text" name="title" placeholder="title"/> 
+          </label>
+      <label>
+        DESCRIPTION:<input
+          type="text"
+          name="description"
+          placeholder="description"
+        />
+      </label>
+      <label>
+        TOOLS USED:<input
+          type="text"
+          name="tools_used"
+          placeholder="tools"
+        />
+      </label>
+    </fieldset>
+    <input type="submit" value="Add" />
+  </form>
 
 {% endblock %}

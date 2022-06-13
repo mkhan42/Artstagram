@@ -1,12 +1,11 @@
 <div>
     <article>
       <h2>
-        {{ art.artistName }}
+        {{ art.name }}
       </h2>
       <br />
       <img src="{{ art.img }}" /> <br />
         {{ art.title }} <br />
-        {{ art.price }} <br />
       <a href="/arts/{{ art._id }}/edit"><button>Edit</button></a>
       <form action="/arts/{{ art._id }}?_method=DELETE" method="POST">
         <input type="submit" value="Delete" />
