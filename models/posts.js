@@ -1,4 +1,5 @@
 const mongoose = require("./connection")
+const User = require("./user")
 
 const { Schema, model } = mongoose
 
@@ -28,10 +29,15 @@ const postsSchema = new Schema ({
     },
     description: String,
     tools_used: [String],
+    username: String,
+    postedBy: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
+    },
     comments: [commentsSchema]
 }, {
     timestamps: true
-}
+},
 
     //userId
 )

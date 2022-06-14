@@ -3,9 +3,12 @@ const express = require("express")
 const morgan = require("morgan")
 const methodOverride = require("method-override")
 const path = require("path")
-const Post = require("./models/posts")
+//const Post = require("./models/posts")
 const PostRouter = require('./controllers/posts')
-// const CommentsRouter = require('./controllers/comments')
+//const CommentsRouter = require('./controllers/comments')
+const UserRouter = require("./controllers/user");
+const session = require("express-session");
+const MongoStore = require("connect-mongo");
 
 
 const app = require("liquid-express-views")(express(), {
@@ -22,12 +25,22 @@ app.use(
 
 app.use(express.static("public"))
 
+app.use(
+  session({
+    secret: process.env.SECRET,
+    store: MongoStore.create({ mongoUrl: process.env.DATABASE_URL }),
+    saveUninitialized: true,
+    resave: false,
+  })
+);
+
 app.use('/posts', PostRouter)
 //app.use('/', CommentsRouter)
+app.use("/user", UserRouter);
 
 app.get("/", (req, res) => {
-    res.send("your server is running... better catch it.")
-})
+  res.render("index.liquid");
+});
 
 const PORT = process.env.PORT
 app.listen(PORT, () => console.log(`Now Listening on port ${PORT}`))

@@ -7,10 +7,17 @@
       <br />
       <img src="{{ post.image_url }}.png" width='200px' /> <br />
         {{ post.title }} <br />
+    
+      
+        {{ user._id }}
+
       <a href="/posts/{{ post._id }}/edit"><button>Edit</button></a>
       <form action="/posts/{{ post._id }}?_method=DELETE" method="POST">
         <input type="submit" value="Delete" />
       </form>
+
+
+
       <form action="/posts/{{ post._id }}/comments?_method=POST" method="POST">
         <label>Comment:</label>
         <textarea name="content"></textarea>
@@ -23,7 +30,7 @@
         <input type="submit" value="Delete" />
       </form><br>
       {% endfor %}
-      <a href="/posts/"><button>Back to Main</button></a>
+      <a href="/posts/feed"><button>Back to Main</button></a>
     </article>
   </div>
  {% endblock %}

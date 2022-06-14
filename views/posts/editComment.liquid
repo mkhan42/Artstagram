@@ -7,7 +7,7 @@
     <form action="/posts/{{ post._id }}/comments?_method=PUT" method="POST">
         <label>Comment:</label>
         <textarea name="content" placeholder="{{ comment.content }}"></textarea>
-        <input type="submit" value="Add Comment">
+        <input type="submit" value="Update Comment">
       </form>
     {% endif %}
 
