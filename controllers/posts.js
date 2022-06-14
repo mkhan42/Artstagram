@@ -33,8 +33,11 @@ router.get("/", (req, res) => {
   Post.find({ username: req.session.username })
 
     .then((posts) => {
+      //console.log(req.session);
       res.render("posts/index.liquid", { posts });
+      // posts.owner.push(req.session.username)
     })
+    
 
     .catch((error) => {
       res.json({ error });
@@ -53,17 +56,17 @@ router.get("/feed", (req, res) => {
       });
   });
 
-  router.get("/feed/:id", (req, res) => {
-    const id = req.params.id;
-    Post.findById(id)
-      .then((post) => {
-        res.render("posts/showfeed.liquid", { post });
-      })
-      .catch((error) => {
-        console.log(error);
-        res.json({ error });
-      });
-  });
+  // router.get("/feed/:id", (req, res) => {
+  //   const id = req.params.id;
+  //   Post.findById(id)
+  //     .then((post) => {
+  //       res.render("posts/showfeed.liquid", { post });
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //       res.json({ error });
+  //     });
+  // });
 
 router.get("/new", (req, res) => {
   res.render("posts/new.liquid");
@@ -78,6 +81,8 @@ router.post("/", (req, res) => {
   Post.create(req.body)
     //.then(newImage => res.json(newImage))
     .then((posts) => {
+      posts.owner = req.session.username
+      console.log(posts);
       res.redirect("/posts");
     })
     .catch((error) => {
@@ -88,7 +93,9 @@ router.post("/", (req, res) => {
 
 router.post("/:id/comments", (req, res) => {
   Post.findById(req.params.id, (error, post) => {
+    req.body.username = req.session.username
     post.comments.push(req.body);
+    console.log(post);
 
     post.save((error) => {
       res.redirect(`/posts/${post._id}`);
@@ -105,19 +112,16 @@ router.get("/:id/:commentId/comments/edit", (req, res) => {
   });
 });
 
-// router.put("/:id/:commentId/comments", (req, res) => {
-//     Post.findByIdAndUpdate(req.params.commentId, req.body, { new: true})
-//     .then(( post ) => {
-//         post.comments.push(req.body)
-//         res.redirect("/posts/:id")
-//     })
-
-//     .catch((error) => {
-//         console.log(error);
-//         res.json({ error });
-//       });
-// });
-
+router.put("/:id/comments", (req, res) => {
+    Post.findByIdAndUpdate(req.params.id, req.body,
+    (error, post) => {
+      post.comments.push(req.body);
+      console.log(post);
+      post.save((error) => {
+        res.redirect(`/posts/${post._id}`);
+      });
+    });
+  });
 // router.delete("/:id/:commentId/comments", (req, res) => {
 //     Post.findByIdAndRemove(req.params.id,
 
@@ -137,7 +141,12 @@ router.get("/:id/edit", (req, res) => {
 
   Post.findById(req.params.id)
     .then((post) => {
-      res.render("posts/edit.liquid", { post });
+      if(post.username == req.session.username) {
+        res.render("posts/edit.liquid", { post });
+      }
+      else {
+        res.send('You are not the owner')
+      }
     })
 
     .catch((error) => {
@@ -171,7 +180,13 @@ router.delete("/:id", (req, res) => {
 router.get("/:id", (req, res) => {
   Post.findById(req.params.id)
     .then((post) => {
-      res.render("posts/show.liquid", { post });
+      if(post.username == req.session.username) {
+        res.render("posts/show.liquid", { post });
+      }
+      else {
+        res.render("posts/showfeed.liquid", { post });
+      }
+      // res.render("posts/show.liquid", { post, user});
     })
     .catch((error) => {
       console.log(error);

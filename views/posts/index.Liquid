@@ -7,7 +7,7 @@
         {{ post.name }}
       </h3>
     <a href="/posts/{{ post._id }}">
-      <img src="{{ post.image_url }}.png" width='200px'/>
+      <img src="{{ post.imageUrl }}.png" width='200px'/>
     </a>
     <form action="/posts/{{ post._id }}?_method=DELETE" method="POST">
       <input type="submit" value="Delete" />

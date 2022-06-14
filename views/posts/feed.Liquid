@@ -5,9 +5,10 @@
       <h3>
         {{ post.name }}
       </h3>
-    <a href="/posts/feed/{{ post._id }}">
-      <img src="{{ post.image_url }}.png" width='200px'/>
+    <a href="/posts/{{ post._id }}">
+      <img src="{{ post.imageUrl }}.png" width='200px'/>
     </a>
 </article>
 {% endfor %}
+<a href="/posts/"><button class="btn btn-outline-info btn-sm" >Back to Main</button></a>
  {% endblock %}

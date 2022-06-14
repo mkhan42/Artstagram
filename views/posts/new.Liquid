@@ -1,33 +1,41 @@
 {% layout "layout.liquid" %} {% block content %}
 <h1>New Post</h1>
 <form action="/posts" method="post">
+  <div class="mb-3 center-div">
     <fieldset>
       <legend>Add</legend>
       <label>
-        ARTIST NAME:<input type="text" name="name" placeholder="name" />
+        ARTIST NAME: <input class="form-control" type="text" name="name" placeholder="name" />
       </label>
+      <br>
       <label> 
-          IMG URL:<input type="text" name="image_url" placeholder="img url"/> 
+          IMG URL: <input class="form-control" type="text" name="imageUrl" placeholder="img url"/> 
         </label>
+        <br>
         <label> 
-            TITLE:<input type="text" name="title" placeholder="title"/> 
+            TITLE: <input class="form-control" type="text" name="title" placeholder="title"/> 
           </label>
+          <br>
       <label>
-        DESCRIPTION:<input
-          type="text"
+        DESCRIPTION: <input
+        class="form-control"
+        type="text"
           name="description"
           placeholder="description"
         />
       </label>
+      <br>
       <label>
-        TOOLS USED:<input
+        TOOLS USED: <input
+        class="form-control"
           type="text"
-          name="tools_used"
+          name="toolsUsed"
           placeholder="tools"
         />
       </label>
     </fieldset>
-    <input type="submit" value="Add" />
+    <input type="submit" class="btn btn-primary" value="Add" />
+  </div>
   </form>
 
 {% endblock %}

@@ -10,6 +10,7 @@ const { Schema, model } = mongoose
 
 
 const commentsSchema = new Schema ({
+    username: String,
     content: String
 }, {
     timestamps: true
@@ -20,7 +21,7 @@ const postsSchema = new Schema ({
         type: String,
         required: true
     },
-    image_url: String,
+    imageUrl: String,
     //image_id: String,
     title: {
         type: String,
@@ -28,12 +29,13 @@ const postsSchema = new Schema ({
         required: true
     },
     description: String,
-    tools_used: [String],
+    toolsUsed: [String],
     username: String,
-    postedBy: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User"
-    },
+    // postedBy: {
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref: "User"
+    // },
+    owner: String,
     comments: [commentsSchema]
 }, {
     timestamps: true
