@@ -35,7 +35,7 @@ app.use(
 );
 
 app.use('/posts', PostRouter)
-//app.use('/', CommentsRouter)
+////app.use('/', CommentsRouter)
 app.use("/user", UserRouter);
 
 app.get("/", (req, res) => {
