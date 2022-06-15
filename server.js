@@ -5,11 +5,10 @@ const methodOverride = require("method-override")
 const path = require("path")
 //const Post = require("./models/posts")
 const PostRouter = require('./controllers/posts')
-//const CommentsRouter = require('./controllers/comments')
+const CommentsRouter = require('./controllers/comments')
 const UserRouter = require("./controllers/user");
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
-
 
 const app = require("liquid-express-views")(express(), {
   root: [path.resolve(__dirname, "views/")],
@@ -35,7 +34,7 @@ app.use(
 );
 
 app.use('/posts', PostRouter)
-////app.use('/', CommentsRouter)
+app.use('/', CommentsRouter)
 app.use("/user", UserRouter);
 
 app.get("/", (req, res) => {

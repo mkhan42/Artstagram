@@ -7,7 +7,7 @@
       <br />
       <img src="{{ post.imageUrl }}.png" width='200px' /> <br />
         {{ post.title }} <br />
-      <form action="/posts/{{ post._id }}/comments?_method=POST" method="POST">
+      <form action="/{{ post._id }}/comments?_method=POST" method="POST">
         <label>Comment:</label>
         <textarea name="content"></textarea>
         <input type="submit" class="btn btn-outline-info btn-sm" value="Add Comment">
@@ -15,9 +15,10 @@
       <br>
       {% for comment in post.comments %}
       @{{ comment.username }} {{ comment.content }} <br>
-      <a href="/posts/{{ post._id }}/{{ comment._id }}/comments/edit"><button class="btn btn-outline-info btn-sm" >Edit</button> </a> 
-      <form action="/posts/{{ post._id }}/{{ comment._id }}?_method=DELETE" method="POST">
+      <a href="/{{ post._id }}/{{ comment._id }}/comments/edit"><button class="btn btn-outline-info btn-sm" >Edit</button> </a> 
+      <form action="/posts/comments/{{ comment._id }}?_method=DELETE" method="POST">
         <input type="submit" class="btn btn-outline-info btn-sm" value="Delete" />
+        <input type="hidden" value="{{ post._id }}" name="postId">
       </form><br>
       {% endfor %}
       <a href="/posts/"><button class="btn btn-outline-info btn-sm">Homepage</button></a>
