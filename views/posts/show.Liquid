@@ -20,7 +20,7 @@
       {% for comment in post.comments %}
       @{{ comment.username }} {{ comment.content }} <br>
       <a href="/posts/{{ post._id }}/{{ comment._id }}/comments/edit"><button class="btn btn-outline-info btn-sm" >Edit</button> </a> 
-      <form action="/posts/{{ post._id }}/{{ comment._id }}/comments?_method=DELETE" method="POST">
+      <form action="/posts/{{ post._id }}/{{ comment._id }}?_method=DELETE" method="POST">
         <input type="submit" class="btn btn-outline-info btn-sm" value="Delete" />
       </form><br>
       {% endfor %}

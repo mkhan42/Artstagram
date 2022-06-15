@@ -1,15 +1,14 @@
 
 {% layout "layout.liquid" %} {% block content %}
-<div>
-  <form action="/user/signup" method="post">
-    <fieldset>
-      <legend>New User</legend>
-      <label>USERNAME: <input type="text" name="username" required /> </label>
-      <label
-        >PASSWORD: <input type="password" name="password" required />
-      </label>
-      <input type="submit" value="Create Account" />
-    </fieldset>
+<div class="back-img">
+  <div class="main">
+    <p class="log">New User</p>
+  <form action="/user/signup" method="post" class="form-log">
+      <input type="text" name="username" class="user-log" placeholder="Username" required />
+      <input type="password" name="password" class="user-log" placeholder="Password" required />
+      <input class="log-submit" type="submit" value="Create Account" />
   </form>
+  <p class="create-use">Already have an account? <a href="/user/login">Sign in!</a></p>
+  </div>
 </div>
 {% endblock %}

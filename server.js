@@ -39,7 +39,7 @@ app.use('/posts', PostRouter)
 app.use("/user", UserRouter);
 
 app.get("/", (req, res) => {
-  res.render("index.liquid");
+  res.render("user/login.liquid");
 });
 
 const PORT = process.env.PORT

@@ -1,10 +1,16 @@
 {% layout "layout.liquid" %} {% block content %}
-<a href="/posts/new"><button>Add Artwork</button></a>
+<nav class="navbar bg-light my-nav">
+  <form class="container-fluid justify-content-start my-nav-form">
+<button class="btn btn-sm btn-outline-secondary my-btn"><a href="/posts/new">Add Artwork</a></button></a>
+<a href="/posts/feed"><button class="btn btn-sm btn-outline-secondary my-btn">Feed</button></a>
+<a href="/user/logout"><button class="btn btn-sm btn-outline-secondary my-btn">Logout</button></a>
+</form>
+</nav>
 {% for post in posts %}
 <article>
     <div class="item-div">
       <h3>
-        {{ post.name }}
+        {{ post.title }}
       </h3>
     <a href="/posts/{{ post._id }}">
       <img src="{{ post.imageUrl }}.png" width='200px'/>
@@ -14,6 +20,4 @@
     </form>
 </article>
 {% endfor %}
-<a href="/posts/feed"><button>Feed</button></a>
-<a href="/user/logout"><button>Logout</button></a>
  {% endblock %}
