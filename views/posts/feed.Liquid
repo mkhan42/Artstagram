@@ -1,6 +1,6 @@
 {% layout "layout.liquid" %} {% block content %}
 {% for post in posts %}
-<article>
+<article class="show-class">
     <div class="item-div">
       <h3>
         {{ post.name }}
@@ -10,5 +10,5 @@
     </a>
 </article>
 {% endfor %}
-<a href="/posts/"><button class="btn btn-outline-info btn-sm" >Back to Main</button></a>
+<a href="/posts/"><button class="btn btn-outline-info btn-sm">Homepage</button></a>
  {% endblock %}

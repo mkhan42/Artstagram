@@ -10,6 +10,7 @@ const UserRouter = require("./controllers/user");
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
 
+
 const app = require("liquid-express-views")(express(), {
   root: [path.resolve(__dirname, "views/")],
 })

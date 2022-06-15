@@ -87,43 +87,57 @@ router.get("/:id/:commentId/comments/edit", (req, res) => {
 //   }
 // })
 
-router.delete("/comments/:commentId", (req, res) => {
+router.delete("/:postId/:commentId", (req, res) => {
+    console.log('HELLOOOOOO');
     const postId = req.body.postId
     console.log('postid', postId);
     const commentId = req.params.commentId
     console.log('comment', commentId);
-    // Post.findById(postId)
-    //   // .then((post) => {
-    //   //   res.redirect(`/posts/${req.params.id}`);
-    //   // })
-    //   .then(post => {
-    //     console.log(post);
-    //     const postComment = post.comments
-    //     //const thisComment = post.comments._id
-    //     //console.log('this comment', );
-    //     console.log('post comment', postComment);
-    //     postComment.remove()
-    //     return post.save()
-    //   })
-
-    Post.updateOne({
-        "_id": ObjectId(postId)
-    },
-        {
-            "$pull": {
-                "comments": {
-                    "_id": ObjectId(commentId)
-                }
-            }
+    Post.findById(postId)
+      // .then((post) => {
+      //   res.redirect(`/posts/${req.params.id}`);
+      // })
+      .then(post => {
+        console.log(post);
+        const postComment = post.comments.id(commentId)
+        if(String(postComment._id) === String(req.params.commentId)) {
+            console.log('reached here')
+            postComment.remove()
+            return post.save()
         }
-    )
-        .then(post => {
-            res.redirect(`/posts/${req.params.id}`);
-        })
-        .catch((error) => {
-            console.log(error);
-            res.json({ error });
-        });
+        else {
+            return
+        }
+        //req.body.username = req.session.username;
+        //const thisComment = post.comments._id
+        //console.log('this comment', );
+        //console.log('post comment', postComment);
+        //postComment.remove({})
+        //post.findOneAndDelete({_id : commentId})
+       //return post.save()
+      })
+      .then(post => {
+            res.redirect(`/posts/${postId}`);
+      })
+
+    // Post.updateOne({
+    //     "_id": ObjectId(postId)
+    // },
+    //     {
+    //         "$pull": {
+    //             "comments": {
+    //                 "_id": ObjectId(commentId)
+    //             }
+    //         }
+    //     }
+    // )
+    //     .then(post => {
+    //         res.redirect(`/posts/${req.params.id}`);
+    //     })
+    //     .catch((error) => {
+    //         console.log(error);
+    //         res.json({ error });
+    //     });
 });
 
 module.exports = router;

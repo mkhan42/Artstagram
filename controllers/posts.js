@@ -117,6 +117,7 @@ router.put("/:id", (req, res) => {
 });
 
 router.delete("/:id", (req, res) => {
+  console.log('GOODBYEEEEE');
   Post.findByIdAndRemove(req.params.id)
     .then((post) => {
       res.redirect("/posts");

@@ -10,6 +10,7 @@ body {
     height: 100%;
     width: 100%;
     padding-top:5px;
+    padding-bottom: 5px;
   }
 
   .main {
@@ -77,4 +78,12 @@ body {
 
 .show-class {
   color: white;
+}
+
+.my-page-back {
+  background-image: url('https://images.unsplash.com/photo-1608501821300-4f99e58bba77?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80');
+  height: 100%;
+  width: 100%;
+  padding-top:5px;
+  padding-bottom: 100%;
 }
