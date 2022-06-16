@@ -70,6 +70,10 @@ router.get("/new", (req, res) => {
   res.render("posts/new.liquid");
 });
 
+router.get("/addNew", (req, res) => {
+  res.render("posts/addNew.liquid");
+});
+
 router.post("/", (req, res) => {
   //console.log(req.file)
   //const image = {};

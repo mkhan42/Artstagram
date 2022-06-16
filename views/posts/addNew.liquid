@@ -1,0 +1,21 @@
+{% layout "layout.liquid" %} {% block content %}
+<nav class="navbar bg-light my-nav">
+  <form class="container-fluid justify-content-start my-nav-form">
+    <button class="btn btn-sm btn-outline-secondary my-btn"><a href="/posts/new">Add Artwork</a></button></a>
+    <button class="btn btn-sm btn-outline-secondary my-btn"><a href="/posts/feed">Feed</a></button></a>
+    <button class="btn btn-sm btn-outline-secondary my-btn"><a href="/user/logout">Logout</a></button></a>
+  </form>
+</nav>
+<div class="my-new-back">
+  <h1 class="artsa-title">Artstagram</h1>
+  <div class="add-new">
+    <div class="card" style="width: 35rem;">
+        <img src="https://media2.giphy.com/media/hQu3aAkP2I0bn3k1hl/giphy.gif?cid=ecf05e47w7wmt6g2spy7tceva6s1qcb71dmbcn2zixam7zw9&rid=giphy.gif&ct=g" class="card-img-top">
+        <div class="card-body">
+            <button class="btn btn-sm btn-outline-secondary my-btn"><a href="/posts/new">CREATE NEW POST</a></button></a>
+        </div>
+  </div>
+  </div>
+</div>
+{% endblock %}
+

@@ -37,7 +37,7 @@ router.get("/signup", (req, res) => {
           if (result) {
             req.session.username = username;
             req.session.loggedIn = true;
-            res.redirect("/posts");
+            res.redirect("/posts/addNew");
           } else {
             res.json({ error: "password doesn't match" });
           }
