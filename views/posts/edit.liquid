@@ -1,0 +1,50 @@
+{% layout "layout.liquid" %} {% block content %}
+<h1>Edit Post</h1>
+<form action="/posts/{{ post._id }}?_method=PUT" method="post">
+  <fieldset>
+    <legend>Update {{ post.title }}</legend>
+    <label>
+      ARTIST NAME:<input
+        type="text"
+        name="name"
+        placeholder="name"
+        value="{{ post.name }}"
+      />
+    </label>
+    <label>
+      IMG URL:<input
+        type="text"
+        name="image_url"
+        placeholder="img url"
+        value="{{ post.imageUrl }}"
+      />
+    </label>
+    <label>
+      TITLE:<input
+        type="text"
+        name="title"
+        placeholder="title"
+        value="{{ post.title }}"
+      />
+    </label>
+    <label>
+      DESCRIPTION:<input
+        type="text"
+        name="description"
+        placeholder="description"
+        value="{{ post.description }}"
+      />
+    </label>
+    <label>
+      TOOLS USED:<input
+        type="text"
+        name="tools_used"
+        placeholder="tools"
+        value="{{ post.toolsUsed }}"
+      />
+    </label>
+  </fieldset>
+  <input type="submit" value="Add" />
+</form>
+
+{% endblock %}
