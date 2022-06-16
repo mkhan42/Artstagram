@@ -12,7 +12,7 @@ const MongoStore = require("connect-mongo");
 
 
 const app = require("liquid-express-views")(express(), {
-  root: [path.resolve(__dirname, "views/")],
+  root: [path.join(__dirname, "views/")],
 })
 
 app.use(morgan("tiny"))
