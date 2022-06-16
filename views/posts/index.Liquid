@@ -7,12 +7,11 @@
 </form>
 </nav>
 <div class="my-page-back">
-<div class="row my-row">
+  <div class="card-group my-card-group">
 {% for post in posts %}
-  <div class="col-sm-6">
-  <div class="card my-card" style="width: 18rem;">
+<div class="card my-card">
     <a href="/posts/{{ post._id }}">
-      <img src="{{ post.imageUrl }}.png" class="card-img-top" width='200px'/>
+      <img src="{{ post.imageUrl }}.png" class="card-img-top" width='100px'/>
     </a>
     <div class="card-body my-card-body">
       <h5 class="card-title my-card-title">
@@ -21,8 +20,6 @@
       <p class="card-text my-card-text">{{ post.description }}</p>
       </div>
     </div>
-  </div>
-
 {% endfor %}
 </div>
 </div>

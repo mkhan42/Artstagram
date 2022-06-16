@@ -87,3 +87,17 @@ body {
   padding-top:5px;
   padding-bottom: 100%;
 }
+
+.my-card-group {
+  width: 80%;
+  margin-left: 12%;
+  margin-top: 10%;
+}
+
+.my-card {
+  /* margin-right: 2%; */
+  border: 5px solid #000000;
+  border-radius: 10px;
+  background-color: #001529;
+  color: #fff;
+}
