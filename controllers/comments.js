@@ -38,58 +38,6 @@ router.put("/:postId/:commentId", (req, res) => {
         });
 })
 
-    // Post.findByIdAndUpdate(req.params.id, req.body,
-    // (error, post) => {
-    //   post.comments.push(req.body);
-    //   console.log(post);
-    //   post.save((error) => {
-    //     res.redirect(`/posts/${post._id}`);
-    //   });
-
-    // });
-
-    // Post.findByIdAndUpdate(req.params.id, req.body,
-    //   (error, post) => {
-    //     const commentId = req.params.commentId
-    //     post.comments.findOneAndDelete({ _id: commentId})
-    //     post.comments.push(req.body);
-    //     console.log(post);
-    //     post.save((error) => {
-    //       res.redirect(`/posts/${post._id}`);
-    //     });
-
-    //   });
-
-    //   Post.findByIdAndUpdate(req.params.id, req.body, (error, post) => {
-    //     post.comments.push(req.body);
-    //     console.log(post);
-    //     post.save((error) => {
-    //       res.redirect(`/posts/${post._id}`);
-    //     });
-    //   });
-
-    // const postId = req.body.postId;
-    // console.log("postid", postId);
-    // const commentId = req.params.commentId;
-    // console.log("comment", commentId);
-    // Post.findById(postId)
-    //     .then((post) => {
-    //         console.log(post);
-    //         const postComment = post.comments.id(commentId);
-    //         if (String(postComment._id) === String(req.params.commentId)) {
-    //             console.log("reached here");
-    //             postComment.remove();
-    //             post.comments.push(req.body);
-    //             return post.save();
-    //         } else {
-    //             return;
-    //         }
-    //     })
-    //     .then((post) => {
-    //         res.redirect(`/posts/${postId}`);
-    //     });
-//});
-
 router.get("/:id/:commentId/comments/edit", (req, res) => {
     Post.findById(req.params.id).then((post) => {
         res.render("posts/editComment.liquid", {

@@ -85,21 +85,24 @@ form.form-log {
   height: 100%;
   width: 100%;
   padding-bottom: 100%;
-  text-align: center;
+  /* text-align: center; */
+  padding-top: 5%;
 }
 
 
 .my-card {
-  margin-right: 5%;
   margin-left: 5%;
   border: 5px solid #000000;
   border-radius: 10px;
   background-color: #001529;
   color: #fff;
   height: 100%;
+  width: 80%;
 }
 
 
 .artsa-title {
   color: #fff;
+  margin-bottom: 5%;
+  text-align: center;
 }
