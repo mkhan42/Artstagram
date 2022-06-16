@@ -132,9 +132,9 @@ router.get("/:id", (req, res) => {
   Post.findById(req.params.id)
     .then((post) => {
       if (post.username == req.session.username) {
-        res.render("posts/show.liquid", { post });
+        res.render("posts/show.liquid", { post, username: req.session.username });
       } else {
-        res.render("posts/showfeed.liquid", { post });
+        res.render("posts/showfeed.liquid", { post, username: req.session.username });
       }
       // res.render("posts/show.liquid", { post, user});
     })

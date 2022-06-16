@@ -4,7 +4,7 @@
     {% for comment in post.comments %}
     {% if comment._id == commentId %}
     {{ comment.content }}
-    <form action="/posts/{{ post._id }}/{{ comment._id }}/comments?_method=PUT" method="POST">
+    <form action="/{{ post._id }}/{{ comment._id }}?_method=PUT" method="POST">
         <label>Comment:</label>
         <textarea name="content" placeholder="{{ comment.content }}"></textarea>
         <input type="submit" value="Update Comment">
