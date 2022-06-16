@@ -131,11 +131,11 @@ router.delete("/:id", (req, res) => {
 router.get("/:id", (req, res) => {
   Post.findById(req.params.id)
     .then((post) => {
-      if (post.username == req.session.username) {
+      // if (post.username == req.session.username) {
         res.render("posts/show.liquid", { post, username: req.session.username });
-      } else {
-        res.render("posts/showfeed.liquid", { post, username: req.session.username });
-      }
+      // } else {
+      //   res.render("posts/showfeed.liquid", { post, username: req.session.username });
+      // }
       // res.render("posts/show.liquid", { post, user});
     })
     .catch((error) => {
