@@ -1,13 +1,13 @@
 require("dotenv").config() // Load ENV Variables
 const mongoose = require("mongoose")
 
-const MONGO_DEV_URI = process.env.MONGO_DEV_URI
+const MONGODB_URI = process.env.MONGODB_URI
 const CONFIG = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 };
 
-mongoose.connect(MONGO_DEV_URI, CONFIG)
+mongoose.connect(MONGODB_URI, CONFIG)
 
 mongoose.connection
   .on("open", () => console.log(`Connected to Mongoose ${mongoose.connection.host}:${mongoose.connection.port}`))
