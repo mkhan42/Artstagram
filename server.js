@@ -39,7 +39,7 @@ app.use('/', CommentsRouter)
 app.use("/user", UserRouter);
 
 app.get("/", (req, res) => {
-  res.render("user/login");
+  res.render("user/login.liquid");
 });
 
 const PORT = process.env.PORT
