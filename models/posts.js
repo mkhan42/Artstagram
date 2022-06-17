@@ -8,7 +8,6 @@ const { Schema, model } = mongoose
 //     id: String,
 // })
 
-
 const commentsSchema = new Schema ({
     username: String,
     content: String
