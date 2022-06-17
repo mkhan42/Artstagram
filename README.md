@@ -47,7 +47,7 @@ A user can delete anyone's comment left on their post.
 * MongoDB and Mongoose
 * Heroku (for deployment)
 * Git
-* All the images used were found on an open source site https://unsplash.com/
+* All the background images used were found on an open source site https://unsplash.com/
 
 # How to install
 
