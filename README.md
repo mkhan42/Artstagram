@@ -36,6 +36,7 @@ A user can delete anyone's comment left on their post.
 # Technologies used
 * HTML 
 * CSS
+* BootStrap
 * JavaScript
 * liquid js
 * node js
@@ -216,3 +217,7 @@ This image shows what the show page would look like once you click on your art w
 * See if I can figure out a reply to comment.
 * Add a profile section where a user can also update their profile.
 * Make it mobile friendly
+
+# References
+* Ivy Le for edit and delete comments
+* This codepen for login and sign up page: https://codepen.io/Devel0per95/pen/rjOpdx*/
