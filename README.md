@@ -206,7 +206,7 @@ This what my Post and Comment schemas look like. Comments is an embedded documen
 
 # Final ERD
 
-![wireframe](./images/finalerd.png)
+![wireframe](./images/erdfinal.png)
 
 # WireFrames/Planning
 
