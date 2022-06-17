@@ -1,48 +1,41 @@
-const mongoose = require("./connection")
-const User = require("./user")
+const mongoose = require("./connection");
+const User = require("./user");
 
-const { Schema, model } = mongoose
+const { Schema, model } = mongoose;
 
-// const imageSchema = new Schema ({
-//     url: String,
-//     id: String,
-// })
-
-const commentsSchema = new Schema ({
+const commentsSchema = new Schema(
+  {
     username: String,
-    content: String
-}, {
-    timestamps: true
-})
+    content: String,
+  },
+  {
+    timestamps: true,
+  }
+);
 
-const postsSchema = new Schema ({
+const postsSchema = new Schema(
+  {
     name: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     imageUrl: String,
-    //image_id: String,
     title: {
-        type: String,
-        default: 'Untitled',
-        required: true
+      type: String,
+      default: "Untitled",
+      required: true,
     },
     description: String,
     toolsUsed: [String],
     username: String,
-    // postedBy: {
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     ref: "User"
-    // },
     owner: String,
-    comments: [commentsSchema]
-}, {
-    timestamps: true
-},
+    comments: [commentsSchema],
+  },
+  {
+    timestamps: true,
+  }
+);
 
-    //userId
-)
+const Post = model("Post", postsSchema);
 
-const Post = model('Post', postsSchema)
-
-module.exports = Post
+module.exports = Post;

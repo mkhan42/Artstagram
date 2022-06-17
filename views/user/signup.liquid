@@ -1,18 +1,21 @@
-
 {% layout "layout.liquid" %} {% block content %}
 <div class="back-img">
-<div class="app-div">
-  <h1 class="app-name">Artstagram</h1>
-</div>
+  <div class="app-div">
+    <h1 class="app-name">Artstagram</h1>
+  </div>
   <div class="main">
     <p class="log">New User</p>
-    <img src="https://media1.giphy.com/media/dYZuoKdPTmjmqV4Co4/giphy.gif?cid=ecf05e47thjqg0cqyx9imea778gjmoa6bbqn46dzumadit8h&rid=giphy.gif&ct=g" class="index-img" width="100px">
-  <form action="/user/signup" method="post" class="form-log">
+    <img
+      src="https://media1.giphy.com/media/dYZuoKdPTmjmqV4Co4/giphy.gif?cid=ecf05e47thjqg0cqyx9imea778gjmoa6bbqn46dzumadit8h&rid=giphy.gif&ct=g"
+      class="index-img" width="100px" />
+    <form action="/user/signup" method="post" class="form-log">
       <input type="text" name="username" class="user-log" placeholder="Username" required />
       <input type="password" name="password" class="user-log" placeholder="Password" required />
       <input class="log-submit" type="submit" value="Create Account" />
-  </form>
-  <p class="create-use">Already have an account? <a href="/user/login">Sign in!</a></p>
+    </form>
+    <p class="create-use">
+      Already have an account? <a href="/user/login">Sign in!</a>
+    </p>
   </div>
 </div>
 {% endblock %}

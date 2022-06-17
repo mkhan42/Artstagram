@@ -1,46 +1,53 @@
 {% layout "layout.liquid" %} {% block content %}
-<form class="container-fluid justify-content-start my-nav-form">
-  <button class="btn btn-sm btn-outline-secondary my-btn"><a href="/posts">My Page</a></button></a>
-  <button class="btn btn-sm btn-outline-secondary my-btn"><a href="/posts/feed">Feed</a></button></a>
-  <button class="btn btn-sm btn-outline-secondary my-btn"><a href="/posts/new">Add Artwork</a></button></a>
-  <button class="btn btn-sm btn-outline-secondary my-btn"><a href="/user/logout">Logout</a></button></a>
-</form>
+<nav class="navbar bg-light my-nav">
+  <form class="container-fluid justify-content-start my-nav-form">
+    <button class="btn btn-sm btn-outline-secondary my-btn"><a href="/posts">My Page</a></button></a>
+    <button class="btn btn-sm btn-outline-secondary my-btn"><a href="/posts/feed">Feed</a></button></a>
+    <button class="btn btn-sm btn-outline-secondary my-btn"><a href="/posts/new">Add Artwork</a></button></a>
+    <button class="btn btn-sm btn-outline-secondary my-btn"><a href="/user/logout">Logout</a></button></a>
+  </form>
+</nav>
 <div class="add-form-div">
-  <h1 class="new-post-add">Edit Post</h1>
+  <div class="app-div">
+    <h1 class="app-name">Edit Post</h1>
+  </div>
   <form action="/posts/{{ post._id }}?_method=PUT" method="post">
     <div class="row mb-3">
       <label class="col-sm-2 col-form-label">Image URL</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="inputPassword3" name="imageUrl" placeholder="img url" value="{{ post.imageUrl }}">
+        <input type="text" class="form-control" id="inputPassword3" name="imageUrl" placeholder="img url"
+          value="{{ post.imageUrl }}">
       </div>
     </div>
-  <div class="row mb-3">
-    <label class="col-sm-2 col-form-label">Title</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="inputPassword3" name="title" placeholder="title" value="{{ post.title }}">
+    <div class="row mb-3">
+      <label class="col-sm-2 col-form-label">Title</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="inputPassword3" name="title" placeholder="title"
+          value="{{ post.title }}">
+      </div>
     </div>
-  </div>
-  <div class="row mb-3">
-    <label class="col-sm-2 col-form-label">Artist Name</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="inputEmail3"name="name" placeholder="name" value="{{ post.name }}">
+    <div class="row mb-3">
+      <label class="col-sm-2 col-form-label">Artist Name</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="inputEmail3" name="name" placeholder="name" value="{{ post.name }}">
+      </div>
     </div>
-  </div>
-  <div class="row mb-3">
-    <label class="col-sm-2 col-form-label">Description</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="inputPassword3" name="description"
-      placeholder="description" value="{{ post.description }}">
+    <div class="row mb-3">
+      <label class="col-sm-2 col-form-label">Description</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="inputPassword3" name="description" placeholder="description"
+          value="{{ post.description }}">
+      </div>
     </div>
-  </div>
-  <div class="row mb-3">
-    <label class="col-sm-2 col-form-label">Tools Used</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="inputPassword3" name="toolsUsed" placeholder="tools" value="{{ post.toolsUsed }}">
+    <div class="row mb-3">
+      <label class="col-sm-2 col-form-label">Tools Used</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="inputPassword3" name="toolsUsed" placeholder="tools"
+          value="{{ post.toolsUsed }}">
+      </div>
     </div>
-  </div>
     <button type="submit" class="btn btn-primary">Update Post</button>
   </form>
-  </div>
+</div>
 
 {% endblock %}

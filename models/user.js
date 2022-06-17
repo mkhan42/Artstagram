@@ -1,7 +1,6 @@
 const mongoose = require("./connection");
 const { Schema, model } = mongoose;
 
-
 const userSchema = new Schema({
   username: {
     type: String,

@@ -7,21 +7,23 @@
   </form>
 </nav>
 <div class="my-page-back">
-  <h1 class="artsa-title">Your Artsta Page</h1>
+  <div class="app-div">
+    <h1 class="artsa-title app-name">Your Artsta Page</h1>
+  </div>
   <div class="row row-cols-1 row-cols-md-3 g-4 my-row">
     {% for post in posts %}
     <div class="col my-col">
       <div class="card my-card">
-      <a href="/posts/{{ post._id }}">
-        <img src="{{ post.imageUrl }}.png" class="card-img-top my-img" width='100px' />
-      </a>
-      <div class="card-body my-card-body">
-        <h5 class="card-title my-card-title">
-          {{ post.title }}
-        </h5>
-        <p class="card-text my-card-text">{{ post.description }}</p>
+        <a href="/posts/{{ post._id }}">
+          <img src="{{ post.imageUrl }}.png" class="card-img-top my-img" width='100px' />
+        </a>
+        <div class="card-body my-card-body">
+          <h5 class="card-title my-card-title">
+            {{ post.title }}
+          </h5>
+          <p class="card-text my-card-text">{{ post.description }}</p>
+        </div>
       </div>
-    </div>
     </div>
     {% endfor %}
   </div>

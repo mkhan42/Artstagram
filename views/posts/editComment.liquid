@@ -7,19 +7,17 @@
     <button class="btn btn-sm btn-outline-secondary my-btn"><a href="/user/logout">Logout</a></button></a>
   </form>
 </nav>
-<h1 class="edit-comment">Edit Comment</h1>
+<div class="app-div">
+  <h1 class="app-name">Edit Comment</h1>
+</div>
 <div class="comment-form">
   {% for comment in post.comments %}
   {% if comment._id == commentId %}
   <form action="/{{ post._id }}/{{ comment._id }}?_method=PUT" method="POST">
     <input type="text" name="content" placeholder="@{{ post.username }}..." value="{{ comment.content }}"></input>
-    <input
-      type="submit"
-      class="btn btn-outline-info btn-sm"
-      value="Update Comment"
-    />
+    <input type="submit" class="btn btn-outline-info btn-sm" value="Update Comment" />
   </form>
 
   {% endif %}
   {% endfor %}
-{% endblock %}
+  {% endblock %}

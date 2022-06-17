@@ -9,69 +9,66 @@
     </form>
   </nav>
 
+  <div class="app-div">
+    <h1 class="app-name">{{ post.username }}'s post</h1>
+  </div>
 
   <div class="my-card-div">
     <div class="card my-show-card">
 
       @{{ post.username }}
-    <img src="{{ post.imageUrl }}.png" class="card-img-top my-img" width="200px" />
+      <img src="{{ post.imageUrl }}.png" class="card-img-top my-img" width="200px" />
 
-    <div class="card-body my-show-body">
-      <h5 class="card-title my-show-title">{{ post.title }} </h5>
-      <p class="card-text my-show-text">{{ post.description }}</p>
-    </div>
+      <div class="card-body my-show-body">
+        <h5 class="card-title my-show-title">{{ post.title }} </h5>
+        <p class="card-text my-show-text">{{ post.description }}</p>
+      </div>
 
-    <ul class="list-group list-group-flush my-show-list">
-      <li class="list-group-item my-item">Artist Name: {{ post.name }}</li>
-      <li class="list-group-item my-item ">Tools used: {{ post.toolsUsed }}</li>
-    </ul>
-    
-    {% if post.username == username %}
-    <div class="card-body my-show-card-body">
-      <a href="/posts/{{ post._id }}/edit" class="card-link my-card-link btn btn-outline-info btn-sm my-edit-btn">Edit</a>
-      <form action="/posts/{{ post._id }}?_method=DELETE" method="POST">
-        <input type="submit" class="card-link my-card-link btn btn-outline-info btn-sm my-edit-btn" value="Delete" />
-      </form>
+      <ul class="list-group list-group-flush my-show-list">
+        <li class="list-group-item my-item">Artist Name: {{ post.name }}</li>
+        <li class="list-group-item my-item ">Tools used: {{ post.toolsUsed }}</li>
+      </ul>
+
+      {% if post.username == username %}
+      <div class="card-body my-show-card-body">
+        <a href="/posts/{{ post._id }}/edit"
+          class="card-link my-card-link btn btn-outline-info btn-sm my-edit-btn">Edit</a>
+        <form action="/posts/{{ post._id }}?_method=DELETE" method="POST">
+          <input type="submit" class="card-link my-card-link btn btn-outline-info btn-sm my-edit-btn" value="Delete" />
+        </form>
+      </div>
+      {% endif %}
     </div>
-    {% endif %}
   </div>
-</div>
 
-<div class="show-comment">
-    {% for comment in post.comments %} 
+  <div class="show-comment">
+    {% for comment in post.comments %}
     <div class="center-comment">
-    @{{ comment.username }} {{ comment.content }} <br />
-    {% if comment.username == username %}
-    <a href="/{{ post._id }}/{{ comment._id }}/comments/edit"
-      ><button class="btn btn-outline-info btn-sm">Edit</button>
-    </a>
-    {% endif %}
+      <p>@<em>{{ comment.username }}</em> {{ comment.content }}</p>
+      {% if comment.username == username %}
+      <a href="/{{ post._id }}/{{ comment._id }}/comments/edit"><button
+          class="btn btn-outline-info btn-sm">Edit</button>
+      </a>
+      {% endif %}
 
 
-    {% if comment.username == username or post.username == username %}
-    <form
-      action="/{{ post._id }}/{{ comment._id }}?_method=DELETE"
-      method="POST"
-    >
-      <input type="submit" class="btn btn-outline-info btn-sm" value="Delete" />
-      <input type="hidden" value="{{ post._id }}" name="postId" />
-    </form>
-    <br>
-    {% endif %}
-  </div>
+      {% if comment.username == username or post.username == username %}
+      <form action="/{{ post._id }}/{{ comment._id }}?_method=DELETE" method="POST">
+        <input type="submit" class="btn btn-outline-info btn-sm" value="Delete" />
+        <input type="hidden" value="{{ post._id }}" name="postId" />
+      </form>
+      <br>
+      {% endif %}
+    </div>
     {% endfor %}
   </div>
-    
-    <br>
 
-    <div class="add-comment">
+  <br>
+
+  <div class="add-comment">
     <form action="/{{ post._id }}/comments?_method=POST" method="POST">
       <input type="text" name="content" placeholder="@{{ username }}..."></input>
-      <input
-        type="submit"
-        class="btn btn-outline-info btn-sm"
-        value="Add Comment"
-      />
+      <input type="submit" class="btn btn-outline-info btn-sm" value="Add Comment" />
     </form>
   </div>
 </div>

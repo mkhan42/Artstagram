@@ -6,43 +6,44 @@
     <button class="btn btn-sm btn-outline-secondary my-btn"><a href="/posts/new">Add Artwork</a></button></a>
     <button class="btn btn-sm btn-outline-secondary my-btn"><a href="/user/logout">Logout</a></button></a>
   </form>
-  </nav>
+</nav>
 <div class="add-form-div">
-<h1 class="new-post-add">New Post</h1>
-<form action="/posts" method="POST">
-  <div class="row mb-3">
-    <label class="col-sm-2 col-form-label">Image URL</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="inputPassword3" name="imageUrl" placeholder="img url">
+  <div class="app-div">
+    <h1 class="app-name">New Post</h1>
+  </div>
+  <form action="/posts" method="POST">
+    <div class="row mb-3">
+      <label class="col-sm-2 col-form-label">Image URL</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="inputPassword3" name="imageUrl" placeholder="img url">
+      </div>
     </div>
-  </div>
-<div class="row mb-3">
-  <label class="col-sm-2 col-form-label">Title</label>
-  <div class="col-sm-10">
-    <input type="text" class="form-control" id="inputPassword3" name="title" placeholder="title">
-  </div>
-</div>
-<div class="row mb-3">
-  <label class="col-sm-2 col-form-label">Artist Name</label>
-  <div class="col-sm-10">
-    <input type="text" class="form-control" id="inputEmail3"name="name" placeholder="name">
-  </div>
-</div>
-<div class="row mb-3">
-  <label class="col-sm-2 col-form-label">Description</label>
-  <div class="col-sm-10">
-    <input type="text" class="form-control" id="inputPassword3" name="description"
-    placeholder="description">
-  </div>
-</div>
-<div class="row mb-3">
-  <label class="col-sm-2 col-form-label">Tools Used</label>
-  <div class="col-sm-10">
-    <input type="text" class="form-control" id="inputPassword3" name="toolsUsed" placeholder="tools">
-  </div>
-</div>
-  <button type="submit" class="btn btn-primary">Add Post</button>
-</form>
+    <div class="row mb-3">
+      <label class="col-sm-2 col-form-label">Title</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="inputPassword3" name="title" placeholder="title">
+      </div>
+    </div>
+    <div class="row mb-3">
+      <label class="col-sm-2 col-form-label">Artist Name</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="inputEmail3" name="name" placeholder="name">
+      </div>
+    </div>
+    <div class="row mb-3">
+      <label class="col-sm-2 col-form-label">Description</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="inputPassword3" name="description" placeholder="description">
+      </div>
+    </div>
+    <div class="row mb-3">
+      <label class="col-sm-2 col-form-label">Tools Used</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="inputPassword3" name="toolsUsed" placeholder="tools">
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Post</button>
+  </form>
 </div>
 
 {% endblock %}
