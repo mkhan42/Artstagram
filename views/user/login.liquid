@@ -1,8 +1,12 @@
 {% layout "layout.liquid" %}
 {% block content %}
 <div class="back-img">
+  <div class="app-div">
+    <h1 class="app-name">Artstagram</h1>
+  </div>
       <div class="main">
         <p class="log"> Log In </p>
+        <img src="https://media1.giphy.com/media/dYZuoKdPTmjmqV4Co4/giphy.gif?cid=ecf05e47thjqg0cqyx9imea778gjmoa6bbqn46dzumadit8h&rid=giphy.gif&ct=g" class="index-img" width="100px">
         <form action="/user/login" method="post" class="form-log">
             <input type="text" name="username" required class="user-log" placeholder="Username"/>
             <input type="password" name="password" required class="user-log" placeholder="Password"/>

@@ -9,15 +9,16 @@ body {
   background-image: url('https://images.unsplash.com/photo-1549490349-8643362247b5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80');
   height: 100%;
   width: 100%;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding-top: 5%;
+  padding-bottom: 5%;
 }
 
 .main {
   background-color: #f1d9ff;
-  width: 500px;
-  height: 500px;
+  width: 700px;
+  height: 700px;
   margin: 20em auto;
+  margin-top: 5%;
   border-radius: 1.5em;
   text-align: center;
 }
@@ -45,7 +46,7 @@ body {
 }
 
 form.form-log {
-  padding-top: 80px;
+  padding-top: 5%;
 
 }
 
@@ -65,8 +66,9 @@ form.form-log {
   padding-bottom: 10px;
   padding-top: 10px;
   font-family: 'Ubuntu', sans-serif;
-  margin-left: 5%;
+  margin-left: 2%;
   font-size: 18px;
+  margin-bottom: 2%;
 }
 
 /* END LOG IN */
@@ -192,4 +194,25 @@ form.form-log {
 .edit-comment {
   text-align: center;
   color: #fff;
+}
+
+.index-img {
+  width: 30%;
+  margin-bottom: 2%;
+}
+
+.app-name {
+  color: #ffffff;
+  /* font-style: italic; */
+  font-weight: bold;
+  font-family: 'Lobster', cursive;
+  font-size: 80px;
+  background-color: #13001c;
+}
+
+.app-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10%;
 }
