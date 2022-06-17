@@ -38,8 +38,9 @@
 </div>
 
 <div class="show-comment">
-    {% for comment in post.comments %} @{{ comment.username }}
-    {{ comment.content }} <br />
+    {% for comment in post.comments %} 
+    <div class="center-comment">
+    @{{ comment.username }} {{ comment.content }} <br />
     {% if comment.username == username %}
     <a href="/{{ post._id }}/{{ comment._id }}/comments/edit"
       ><button class="btn btn-outline-info btn-sm">Edit</button>
@@ -57,6 +58,7 @@
     </form>
     <br>
     {% endif %}
+  </div>
     {% endfor %}
   </div>
     

@@ -1,41 +1,40 @@
 {% layout "layout.liquid" %} {% block content %}
-<h1>New Post</h1>
-<form action="/posts" method="post">
-  <div class="mb-3 center-div">
-    <fieldset>
-      <legend>Add</legend>
-      <label>
-        ARTIST NAME: <input class="form-control" type="text" name="name" placeholder="name" />
-      </label>
-      <br>
-      <label> 
-          IMG URL: <input class="form-control" type="text" name="imageUrl" placeholder="img url"/> 
-        </label>
-        <br>
-        <label> 
-            TITLE: <input class="form-control" type="text" name="title" placeholder="title"/> 
-          </label>
-          <br>
-      <label>
-        DESCRIPTION: <input
-        class="form-control"
-        type="text"
-          name="description"
-          placeholder="description"
-        />
-      </label>
-      <br>
-      <label>
-        TOOLS USED: <input
-        class="form-control"
-          type="text"
-          name="toolsUsed"
-          placeholder="tools"
-        />
-      </label>
-    </fieldset>
-    <input type="submit" class="btn btn-primary" value="Add" />
+<div class="add-form-div">
+<h1 class="new-post-add">New Post</h1>
+<form action="/posts" method="POST">
+  <div class="row mb-3">
+    <label class="col-sm-2 col-form-label">Image URL</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputPassword3" name="imageUrl" placeholder="img url">
+    </div>
   </div>
-  </form>
+<div class="row mb-3">
+  <label class="col-sm-2 col-form-label">Title</label>
+  <div class="col-sm-10">
+    <input type="text" class="form-control" id="inputPassword3" name="title" placeholder="title">
+  </div>
+</div>
+<div class="row mb-3">
+  <label class="col-sm-2 col-form-label">Artist Name</label>
+  <div class="col-sm-10">
+    <input type="text" class="form-control" id="inputEmail3"name="name" placeholder="name">
+  </div>
+</div>
+<div class="row mb-3">
+  <label class="col-sm-2 col-form-label">Description</label>
+  <div class="col-sm-10">
+    <input type="text" class="form-control" id="inputPassword3" name="description"
+    placeholder="description">
+  </div>
+</div>
+<div class="row mb-3">
+  <label class="col-sm-2 col-form-label">Tools Used</label>
+  <div class="col-sm-10">
+    <input type="text" class="form-control" id="inputPassword3" name="toolsUsed" placeholder="tools">
+  </div>
+</div>
+  <button type="submit" class="btn btn-primary">Add Post</button>
+</form>
+</div>
 
 {% endblock %}

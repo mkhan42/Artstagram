@@ -158,10 +158,19 @@ form.form-log {
   margin-top: 10%;
 }
 
-.show-comment {
+.center-comment {
+  margin-top: 10px;
   color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
+}
 
+.add-form-div {
+  color: #ffffff;
+  
+}
+
+.new-post-add {
+  text-align: center;
 }
