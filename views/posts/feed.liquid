@@ -1,14 +1,30 @@
 {% layout "layout.liquid" %} {% block content %}
-{% for post in posts %}
-<article class="show-class">
-    <div class="item-div">
-      <h3>
-        {{ post.name }}
-      </h3>
-    <a href="/posts/{{ post._id }}">
-      <img src="{{ post.imageUrl }}.png" width='200px'/>
-    </a>
-</article>
-{% endfor %}
-<a href="/posts/"><button class="btn btn-outline-info btn-sm">Homepage</button></a>
- {% endblock %}
+<nav class="navbar bg-light my-nav">
+  <form class="container-fluid justify-content-start my-nav-form">
+    <button class="btn btn-sm btn-outline-secondary my-btn"><a href="/posts">My Page</a></button></a>
+    <button class="btn btn-sm btn-outline-secondary my-btn"><a href="/posts/new">Add Artwork</a></button></a>
+    <button class="btn btn-sm btn-outline-secondary my-btn"><a href="/user/logout">Logout</a></button></a>
+  </form>
+</nav>
+<div class="my-page-back">
+  <h1 class="artsa-title">Artsa Community</h1>
+  <div class="row row-cols-1 row-cols-md-3 g-4 my-row">
+    {% for post in posts %}
+    <div class="col my-col">
+      <div class="card my-card">
+        @{{ post.username }}
+      <a href="/posts/{{ post._id }}">
+        <img src="{{ post.imageUrl }}.png" class="card-img-top my-img" width='100px' />
+      </a>
+      <div class="card-body my-card-body">
+        <h5 class="card-title my-card-title">
+          {{ post.title }}
+        </h5>
+        <p class="card-text my-card-text">{{ post.description }}</p>
+      </div>
+    </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

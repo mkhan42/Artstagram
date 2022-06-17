@@ -92,9 +92,9 @@ form.form-log {
 
 .my-card {
   margin-left: 5%;
-  border: 5px solid #000000;
-  border-radius: 10px;
-  background-color: #001529;
+  border: 1px solid #ffffff;
+  border-radius: 0px;
+  background-color: #000000;
   color: #fff;
   height: 100%;
   width: 80%;
@@ -121,4 +121,47 @@ form.form-log {
   padding-bottom: 25%;
   /* text-align: center; */
   padding-top: 5%;
+}
+
+.my-img {
+  border: 1px solid #ffffff;
+  border-radius: 0px;
+  border-top-style: none;
+  border-right-style: none;
+  border-left-style: none;
+}
+
+.add-comment {
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.my-show-card {
+  background-color: #000000;
+  color:#ffffff;
+  width: 30%;
+  border-radius: 0%;
+}
+
+.my-item {
+  color:#ffffff;
+  background-color: #000000;
+
+}
+
+.my-card-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10%;
+}
+
+.show-comment {
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
 }

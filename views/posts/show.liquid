@@ -1,30 +1,43 @@
 {% layout "layout.liquid" %} {% block content %}
-<div>
-  <article class="show-class">
-    <h2>
-      {{ post.name }}
-    </h2>
-    <br />
-    <img src="{{ post.imageUrl }}.png" width="200px" /> <br />
-    {{ post.title }} <br />
+<div class="my-show-page-div">
+  <nav class="navbar bg-light my-nav">
+    <form class="container-fluid justify-content-start my-nav-form">
+      <button class="btn btn-sm btn-outline-secondary my-btn"><a href="/posts">My Page</a></button></a>
+      <button class="btn btn-sm btn-outline-secondary my-btn"><a href="/posts/feed">Feed</a></button></a>
+      <button class="btn btn-sm btn-outline-secondary my-btn"><a href="/posts/new">Add Artwork</a></button></a>
+      <button class="btn btn-sm btn-outline-secondary my-btn"><a href="/user/logout">Logout</a></button></a>
+    </form>
+  </nav>
+
+
+  <div class="my-card-div">
+    <div class="card my-show-card">
+
+      @{{ post.username }}
+    <img src="{{ post.imageUrl }}.png" class="card-img-top my-img" width="200px" />
+
+    <div class="card-body my-show-body">
+      <h5 class="card-title my-show-title">{{ post.title }} </h5>
+      <p class="card-text my-show-text">{{ post.description }}</p>
+    </div>
+
+    <ul class="list-group list-group-flush my-show-list">
+      <li class="list-group-item my-item">Artist Name: {{ post.name }}</li>
+      <li class="list-group-item my-item ">Tools used: {{ post.toolsUsed }}</li>
+    </ul>
+    
     {% if post.username == username %}
-    <a href="/posts/{{ post._id }}/edit"
-      ><button class="btn btn-outline-info btn-sm">Edit</button></a
-    >
-    <form action="/posts/{{ post._id }}?_method=DELETE" method="POST">
-      <input type="submit" class="btn btn-outline-info btn-sm" value="Delete" />
-    </form>
+    <div class="card-body my-show-card-body">
+      <a href="/posts/{{ post._id }}/edit" class="card-link my-card-link btn btn-outline-info btn-sm my-edit-btn">Edit</a>
+      <form action="/posts/{{ post._id }}?_method=DELETE" method="POST">
+        <input type="submit" class="card-link my-card-link btn btn-outline-info btn-sm my-edit-btn" value="Delete" />
+      </form>
+    </div>
     {% endif %}
-    <form action="/{{ post._id }}/comments?_method=POST" method="POST">
-      <label>Comment:</label>
-      <textarea name="content"></textarea>
-      <input
-        type="submit"
-        class="btn btn-outline-info btn-sm"
-        value="Add Comment"
-      />
-    </form>
-    <br />
+  </div>
+</div>
+
+<div class="show-comment">
     {% for comment in post.comments %} @{{ comment.username }}
     {{ comment.content }} <br />
     {% if comment.username == username %}
@@ -32,6 +45,7 @@
       ><button class="btn btn-outline-info btn-sm">Edit</button>
     </a>
     {% endif %}
+
 
     {% if comment.username == username or post.username == username %}
     <form
@@ -41,15 +55,22 @@
       <input type="submit" class="btn btn-outline-info btn-sm" value="Delete" />
       <input type="hidden" value="{{ post._id }}" name="postId" />
     </form>
-    <br />
+    <br>
     {% endif %}
     {% endfor %}
-    <a href="/posts/"
-      ><button class="btn btn-outline-info btn-sm">Homepage</button></a
-    >
-    <a href="/posts/feed"
-      ><button class="btn btn-outline-info btn-sm">Feed</button></a
-    >
-  </article>
+  </div>
+    
+    <br>
+
+    <div class="add-comment">
+    <form action="/{{ post._id }}/comments?_method=POST" method="POST">
+      <input type="text" name="content" placeholder="@{{ post.username }}..."></input>
+      <input
+        type="submit"
+        class="btn btn-outline-info btn-sm"
+        value="Add Comment"
+      />
+    </form>
+  </div>
 </div>
 {% endblock %}
