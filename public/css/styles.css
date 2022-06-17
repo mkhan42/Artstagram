@@ -174,3 +174,22 @@ form.form-log {
 .new-post-add {
   text-align: center;
 }
+
+.update-comment {
+  margin-top: 10px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.comment-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.edit-comment {
+  text-align: center;
+  color: #fff;
+}

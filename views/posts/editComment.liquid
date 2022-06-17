@@ -1,16 +1,25 @@
 {% layout "layout.liquid" %} {% block content %}
-<h1>Edit Comment</h1>
-<div>
-    {% for comment in post.comments %}
-    {% if comment._id == commentId %}
-    {{ comment.content }}
-    <form action="/{{ post._id }}/{{ comment._id }}?_method=PUT" method="POST">
-        <label>Comment:</label>
-        <textarea name="content" placeholder="{{ comment.content }}"></textarea>
-        <input type="submit" value="Update Comment">
-      </form>
-    {% endif %}
+<nav class="navbar bg-light my-nav">
+  <form class="container-fluid justify-content-start my-nav-form">
+    <button class="btn btn-sm btn-outline-secondary my-btn"><a href="/posts">My Page</a></button></a>
+    <button class="btn btn-sm btn-outline-secondary my-btn"><a href="/posts/feed">Feed</a></button></a>
+    <button class="btn btn-sm btn-outline-secondary my-btn"><a href="/posts/new">Add Artwork</a></button></a>
+    <button class="btn btn-sm btn-outline-secondary my-btn"><a href="/user/logout">Logout</a></button></a>
+  </form>
+</nav>
+<h1 class="edit-comment">Edit Comment</h1>
+<div class="comment-form">
+  {% for comment in post.comments %}
+  {% if comment._id == commentId %}
+  <form action="/{{ post._id }}/{{ comment._id }}?_method=PUT" method="POST">
+    <input type="text" name="content" placeholder="@{{ post.username }}..." value="{{ comment.content }}"></input>
+    <input
+      type="submit"
+      class="btn btn-outline-info btn-sm"
+      value="Update Comment"
+    />
+  </form>
 
-    {% endfor %}
-</div>
+  {% endif %}
+  {% endfor %}
 {% endblock %}
