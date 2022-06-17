@@ -1,4 +1,11 @@
 {% layout "layout.liquid" %} {% block content %}
+<nav class="navbar bg-light my-nav">
+  <form class="container-fluid justify-content-start my-nav-form">
+    <button class="btn btn-sm btn-outline-secondary my-btn"><a href="/posts">My Page</a></button></a>
+    <button class="btn btn-sm btn-outline-secondary my-btn"><a href="/posts/feed">Feed</a></button></a>
+    <button class="btn btn-sm btn-outline-secondary my-btn"><a href="/posts/new">Add Artwork</a></button></a>
+    <button class="btn btn-sm btn-outline-secondary my-btn"><a href="/user/logout">Logout</a></button></a>
+  </form>
 <div class="add-form-div">
 <h1 class="new-post-add">New Post</h1>
 <form action="/posts" method="POST">
