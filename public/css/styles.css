@@ -114,6 +114,7 @@ form.form-log {
   align-items: center;
   justify-content: center;
   text-align: center;
+  margin-top: 5%;
 }
 
 .my-new-back {
@@ -214,5 +215,5 @@ form.form-log {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 10%;
+  margin-top: 5%;
 }
