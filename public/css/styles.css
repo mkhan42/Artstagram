@@ -16,12 +16,13 @@ body {
 
 .main {
   background-color: #f1d9ff;
-  width: 700px;
-  height: 700px;
+  width: 60%;
+  height: 75%;
   margin: 20em auto;
   margin-top: 5%;
   border-radius: 1.5em;
   text-align: center;
+  padding-bottom: 2%;
 }
 
 .log {
