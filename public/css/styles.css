@@ -42,7 +42,8 @@ body {
   border: none;
   border-radius: 20px;
   margin-bottom: 30px;
-  margin-left: 20px;
+  margin-left: 5%;
+  margin-right: 5%;
   text-align: center;
   font-family: 'Ubuntu', sans-serif;
 }
